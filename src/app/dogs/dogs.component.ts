@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyHTTPService } from '../my-http.service';
 
 @Component({
   selector: 'app-dogs',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _myHttp:MyHTTPService) { }
+
+  dogPic:string = '';
 
   ngOnInit(): void {
+  }
+
+  getDogImg(){
+    this._myHttp.getDogs().subscribe((dog) => console.log(dog));
   }
 
 }
