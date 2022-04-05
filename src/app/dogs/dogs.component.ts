@@ -10,13 +10,14 @@ export class DogsComponent implements OnInit {
 
   constructor(private _myHttp:MyHTTPService) { }
 
-  dogPic:string = '';
+  dogPic:any = [];
 
   ngOnInit(): void {
   }
 
   getDogImg(){
-    this._myHttp.getDogs().subscribe((dog) => console.log(dog));
+    this._myHttp.getDogs().subscribe((dog) => this.dogPic = dog);
+    console.log(this.dogPic);
   }
 
 }

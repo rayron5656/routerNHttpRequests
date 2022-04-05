@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyHTTPService } from '../my-http.service';
 
 @Component({
   selector: 'app-cats',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatsComponent implements OnInit {
 
-  constructor() { }
+  catFacts:any = [];
+
+  constructor(private _myHttp:MyHTTPService) {
+    this._myHttp.getCats().subscribe((cat) => this.catFacts = cat );
+   }
 
   ngOnInit(): void {
+    
   }
+  
 
 }

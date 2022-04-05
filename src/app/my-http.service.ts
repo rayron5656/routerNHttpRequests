@@ -17,6 +17,6 @@ export class MyHTTPService {
     return this.dogs.get('https://dog.ceo/api/breeds/image/random');
   }
   getCats(){
-    return this.cats.get('cat-fact.herokuapp.com')
+    return this.cats.get('https://cat-fact.herokuapp.com/facts')
   }
 }
